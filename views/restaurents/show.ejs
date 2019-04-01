@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="thumbnail">
+        <img class="img-responsive" style:width=300px width= 500px src="<%= restaurent.image %>">
+        <div class="caption-full">
+            <h4><%= restaurent.name %></h4>
+            <p><%= restaurent.description %></p>
+        </div>
+    </div>
+
+
+
+<div class="well">
+    <div class="right">
+        <a class="btn btn-danger" href="/restaurents/<%= restaurent._id %>/edit">Edit</a>
+        <a class="btn btn-success" href="/restaurents/<%=restaurent._id%>/comments/new">Add New Comment</a>
+    </div>
+</div>    
+
+
+<% restaurent.comments.forEach(function(comment){ %>
+    
+    <p>
+        <strong><%= comment.author.username %></strong> - <%= comment.text %>
+    </p>
+    
+    <% }) %> 
+</div>
+</div>       
+<% include ../partials/footer %>
